@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.eclipse.jdt.ui.text.java.hover.IJavaEditorTextHover"/>
+<fullyQualifiedTypeName name="org.eclipse.jface.text.BadLocationException"/>
+<fullyQualifiedTypeName name="org.eclipse.ui.forms.widgets.Hyperlink"/>
+<fullyQualifiedTypeName name="org.eclipse.ui.forms.events.HyperlinkAdapter"/>
+<fullyQualifiedTypeName name="org.eclipse.ui.forms.events.HyperlinkEvent"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.SWT"/>
+<fullyQualifiedTypeName name="org.eclipse.ui.IEditorPart"/>
+<fullyQualifiedTypeName name="testpopupmenu.Activator"/>
+<fullyQualifiedTypeName name="org.eclipse.ui.texteditor.AbstractTextEditor"/>
+<fullyQualifiedTypeName name="sampleview.views.SampleView"/>
+<fullyQualifiedTypeName name="lums.cbrs.completion.CodeCompletion"/>
+<fullyQualifiedTypeName name="java.net.URI"/>
+<fullyQualifiedTypeName name="org.eclipse.jface.resource.ImageDescriptor"/>
+<fullyQualifiedTypeName name="sampleview.Activator"/>
+<fullyQualifiedTypeName name="org.eclipse.ui.forms.widgets.FormToolkit"/>
+<fullyQualifiedTypeName name="org.eclipse.ui.forms.widgets.ScrolledForm"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.layout.GridLayout"/>
+<fullyQualifiedTypeName name="org.eclipse.ui.forms.widgets.Section"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.widgets.Table"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.layout.GridData"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.widgets.Button"/>
+<fullyQualifiedTypeName name="org.eclipse.ui.editors.text.TextEditor"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.events.KeyAdapter"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.events.KeyEvent"/>
+<fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.awt.SWT_AWT"/>
+<fullyQualifiedTypeName name="java.awt.Frame"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.custom.CTabFolder"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.custom.CTabItem"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.widgets.Display"/>
+<fullyQualifiedTypeName name="sampleview.popup.Mypopup"/>
+<fullyQualifiedTypeName name="org.eclipse.jface.viewers.LabelProvider"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.graphics.Image"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.eclipse.jdt.ui.text.java.correction.ChangeCorrectionProposal"/>
+<fullyQualifiedTypeName name="java.nio.file.Paths"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="org.eclipse.core.runtime.Platform"/>
+<fullyQualifiedTypeName name="org.osgi.framework.Bundle"/>
+<fullyQualifiedTypeName name="org.eclipse.core.runtime.FileLocator"/>
+</qualifiedTypeNameHistroy>

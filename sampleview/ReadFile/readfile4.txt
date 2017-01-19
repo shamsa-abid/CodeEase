@@ -1,0 +1,9 @@
+void readLargerTextFile(String aFileName) throws IOException {
+    Path path = Paths.get(aFileName);
+    try (Scanner scanner =  new Scanner(path, ENCODING.name())){
+      while (scanner.hasNextLine()){
+        //process each line in some way
+        log(scanner.nextLine());
+      }      
+    }
+  }

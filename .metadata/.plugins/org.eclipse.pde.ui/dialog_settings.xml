@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="false" key="generateActivator"/>
+	<item value="3.5 or greater" key="targetName"/>
+	<item value="false" key="uiPlugin"/>
+	<item value="false" key="apiAnalysis"/>
+	<item value="false" key="rcpPlugin"/>
+	<item value="false" key="osgiProject"/>
+	<section name="ConvertedProjectWizard">
+		<item value="false" key="apiAnalysis"/>
+	</section>
+	<section name="PDEFormActionManager">
+	</section>
+	<section name="JavaAttributeWizard">
+		<section name="NewClassWizardPage">
+			<item value="false" key="create_constructor"/>
+			<item value="true" key="create_unimplemented"/>
+		</section>
+	</section>
+	<section name="org.eclipse.pde.ui.dialogs.PluginSelectionDialog">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="391" key="DIALOG_X_ORIGIN"/>
+			<item value="39" key="DIALOG_Y_ORIGIN"/>
+		</section>
+	</section>
+	<section name="PluginExportWizard">
+		<item value="E:\Software\eclipse-mars\java-mars\eclipse\dropins" key="destination0"/>
+		<item value="" key="keypass"/>
+		<item value="E:\Software\eclipse-mars\java-mars\eclipse\dropins" key="destination1"/>
+		<item value="false" key="signJAR"/>
+		<item value="Generate source bundles" key="exportSourceFormat"/>
+		<item value="false" key="exportUpdate"/>
+		<item value="false" key="saveAsAnt"/>
+		<item value="true" key="exportSource"/>
+		<item value="" key="password"/>
+		<item value="true" key="allowBinaryCycles"/>
+		<item value="201611261825" key="qualifierName"/>
+		<item value="true" key="useWorkspaceCompiledClasses"/>
+		<item value="3" key="exportType"/>
+		<item value="false" key="qualifier"/>
+		<item value="" key="alias"/>
+		<item value="" key="keystore"/>
+		<item value="F:/PhD/HCI/PluginDev/.metadata/.plugins/org.eclipse.pde.core/install/" key="installDestination0"/>
+		<item value="F:/PhD/HCI/PluginDev/.metadata/.plugins/org.eclipse.pde.core/install/" key="installDestination1"/>
+	</section>
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="pluginsView">
+	</section>
+</section>

@@ -1,0 +1,14 @@
+package sampleview.views;
+
+import org.eclipse.jdt.ui.text.java.hover.IJavaEditorTextHover;
+import org.eclipse.ui.IEditorPart;
+
+public class Hover implements IJavaEditorTextHover {
+
+	@Override
+	public void setEditor(IEditorPart arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

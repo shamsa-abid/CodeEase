@@ -1,0 +1,9 @@
+ public static void readFile() throws IOException {
+        BufferedReader inputStream = new BufferedReader(new FileReader(
+                "original.txt"));
+        String count;
+        while ((count = inputStream.readLine()) != null) {
+            System.out.println(count);
+        }
+        inputStream.close();
+    }

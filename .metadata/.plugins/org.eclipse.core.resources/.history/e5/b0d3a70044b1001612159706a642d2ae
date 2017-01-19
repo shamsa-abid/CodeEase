@@ -1,0 +1,50 @@
+package lums.cbrs.completion;
+
+import java.util.ArrayList;
+
+public class CodeCompletion {
+
+	private ArrayList<String> methodNames = new ArrayList<String>();
+	private ArrayList<String> methodBodies = new ArrayList<String>();
+	private ArrayList<String> friendMethodBodies = new ArrayList<String>();
+	private ArrayList<String> friendMethodNames = new ArrayList<String>();
+
+	public CodeCompletion()
+	{
+		methodNames.add("method1(int a)");
+		methodNames.add("method2(int b)");
+		methodNames.add("method3(int c)");		
+		methodNames.add("method4(int d)");
+		methodNames.add("method5(int e)");		
+	
+		friendMethodNames.add("friendmethod1(int a)");
+		friendMethodNames.add("friendmethod2(int b)");
+		friendMethodNames.add("friendmethod3(int c)");
+		
+		friendMethodBodies.add("String[] simpleArray1 = list.toArray(new String[list.size()]);");
+		friendMethodBodies.add("String[] simpleArray2 = list.toArray(new String[list.size()]);");
+		friendMethodBodies.add("String[] simpleArray3 = list.toArray(new String[list.size()]);");
+				
+	}
+	
+	public void setMethodNames(ArrayList<String> methodNames) {
+		this.methodNames = methodNames;
+	}
+
+	public ArrayList<String> getMethodNames()
+	{
+		return methodNames;
+	}
+	public ArrayList<String> getFriendMethodNames()
+	{
+		return friendMethodNames;
+	}
+	
+	private String getMethodBody(int elementNumber)
+	{
+		return methodBodies.get(elementNumber);
+	}
+	public static void main(String args[])
+	{}
+
+}

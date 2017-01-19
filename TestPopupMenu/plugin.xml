@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.ui.IEditorInput"
+            nameFilter="*.*"
+            id="TestPopupMenu.contribution1">
+         <menu
+               label="CodeEase"
+               icon = "icons/sample.gif"
+               path="additions"
+               id="TestPopupMenu.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               label="Find Friend Methods"
+               icon = "icons/sample.gif"
+               class="testpopupmenu.popup.actions.SimpleMessageAction2"
+               menubarPath="TestPopupMenu.menu1/group1"
+               enablesFor="1"
+               id="TestPopupMenu.newAction">
+         </action>
+         <action
+               label="Complete Method"
+               icon = "icons/sample.gif"
+               class="testpopupmenu.popup.actions.SimpleMessageAction"
+               menubarPath="TestPopupMenu.menu1/group1"
+               enablesFor="1"
+               id="TestPopupMenu.newAction1">
+         </action>
+      </objectContribution>
+   </extension>
+</plugin>

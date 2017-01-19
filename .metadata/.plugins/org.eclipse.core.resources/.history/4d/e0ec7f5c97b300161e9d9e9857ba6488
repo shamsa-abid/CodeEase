@@ -1,0 +1,143 @@
+import java.awt.List;
+import java.util.ArrayList;
+
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jdt.ui.text.java.IInvocationContext;
+import org.eclipse.jdt.ui.text.java.IJavaCompletionProposal;
+import org.eclipse.jdt.ui.text.java.IProblemLocation;
+import org.eclipse.jdt.ui.text.java.IQuickAssistProcessor;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor;
+import org.eclipse.jdt.internal.ui.text.correction.AssistContext;
+import org.eclipse.jdt.internal.ui.text.java.AbstractJavaCompletionProposal;
+import org.eclipse.jdt.ui.actions.AddGetterSetterAction;
+import org.eclipse.jdt.ui.text.java.IInvocationContext;
+import org.eclipse.jdt.ui.text.java.IJavaCompletionProposal;
+import org.eclipse.jdt.ui.text.java.IProblemLocation;
+import org.eclipse.jdt.ui.text.java.IQuickAssistProcessor;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.swt.graphics.Image;
+
+import sampleview.Activator;
+import sampleview.popup.Mypopup;
+
+public class QuickAssistProcessor1 implements IQuickAssistProcessor {
+
+	@Override
+	public boolean hasAssists(IInvocationContext context) throws CoreException {
+		ASTNode coveredNode = context.getCoveredNode();
+
+		return coveredNode.getNodeType() == ASTNode.TYPE_DECLARATION;
+	}
+
+	@Override
+	public IJavaCompletionProposal[] getAssists(IInvocationContext context, IProblemLocation[] locations)
+			throws CoreException {
+		ArrayList<IJavaCompletionProposal> proposals = new ArrayList<IJavaCompletionProposal>();
+		proposals.add(new AbstractJavaCompletionProposal() {
+             public org.eclipse.jface.viewers.StyledString getStyledDisplayString() {
+                     ICompilationUnit compilationUnit = context.getCompilationUnit();
+                     return new StyledString(
+                                     "Complete Method");
+                     //+ compilationUnit.findPrimaryType().getElementName());
+             }
+
+             protected int getPatternMatchRule(String pattern, String string) {
+                     // override the match rule since we do not work with a pattern, but just want to open the "Generate Getters and Setters..." dialog
+                     return -1;
+             };
+
+             public void apply(org.eclipse.jface.text.ITextViewer viewer, char trigger, int stateMask, int offset) {
+
+                     if(context instanceof AssistContext) {
+                             AssistContext assistContext = (AssistContext) context;
+                             AddGetterSetterAction addGetterSetterAction = new AddGetterSetterAction((CompilationUnitEditor)assistContext.getEditor());
+
+                             addGetterSetterAction.run();
+                     }
+
+             }
+								
+							public Image getImage()
+							{
+								ImageDescriptor descriptor = Activator.getImageDescriptor("platform:/plugin/org.eclipse.xtext.ui/icons/defaultoutlinenode.gif");
+							    return descriptor.createImage();
+								
+							}
+
+						
+		});
+		
+		proposals.add(new AbstractJavaCompletionProposal() {
+            public org.eclipse.jface.viewers.StyledString getStyledDisplayString() {
+                    ICompilationUnit compilationUnit = context.getCompilationUnit();
+                    return new StyledString(
+                                    "Find Friends");
+                    //+ compilationUnit.findPrimaryType().getElementName());
+            }
+
+            protected int getPatternMatchRule(String pattern, String string) {
+                    // override the match rule since we do not work with a pattern, but just want to open the "Generate Getters and Setters..." dialog
+                    return -1;
+            };
+
+            public void apply(org.eclipse.jface.text.ITextViewer viewer, char trigger, int stateMask, int offset) {
+
+                    //do nothing for now
+
+            }
+								
+							public Image getImage()
+							{
+								ImageDescriptor descriptor = Activator.getImageDescriptor("platform:/plugin/org.eclipse.xtext.ui/icons/defaultoutlinenode.gif");
+							    return descriptor.createImage();
+								
+							}
+
+						
+		});
+		
+		return proposals.toArray(new IJavaCompletionProposal[proposals.size()]);
+	}
+
+}
+/*
+return new IJavaCompletionProposal[] { new AbstractJavaCompletionProposal() {
+             public org.eclipse.jface.viewers.StyledString getStyledDisplayString() {
+                     ICompilationUnit compilationUnit = context.getCompilationUnit();
+                     return new StyledString(
+                                     "Complete Method");
+                     //+ compilationUnit.findPrimaryType().getElementName());
+             }
+
+             protected int getPatternMatchRule(String pattern, String string) {
+                     // override the match rule since we do not work with a pattern, but just want to open the "Generate Getters and Setters..." dialog
+                     return -1;
+             };
+
+             public void apply(org.eclipse.jface.text.ITextViewer viewer, char trigger, int stateMask, int offset) {
+
+                     if(context instanceof AssistContext) {
+                             AssistContext assistContext = (AssistContext) context;
+                             AddGetterSetterAction addGetterSetterAction = new AddGetterSetterAction((CompilationUnitEditor)assistContext.getEditor());
+
+                             addGetterSetterAction.run();
+                     }
+
+             }
+								
+							public Image getImage()
+							{
+								ImageDescriptor descriptor = Activator.getImageDescriptor("platform:/plugin/org.eclipse.xtext.ui/icons/defaultoutlinenode.gif");
+							    return descriptor.createImage();
+								
+							}
+
+						
+		}};
+*/

@@ -1,0 +1,144 @@
+package sampleview.popup;
+
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.StatusLineManager;
+import org.eclipse.jface.action.ToolBarManager;
+import org.eclipse.jface.window.ApplicationWindow;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.jface.action.Separator;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.TabFolder;
+import org.eclipse.swt.widgets.TabItem;
+
+public class Mypopup extends ApplicationWindow {
+	private Table table;
+	private Table table_1;
+
+	/**
+	 * Create the application window.
+	 */
+	public Mypopup() {
+		super(null);
+		createActions();
+		addToolBar(SWT.FLAT | SWT.WRAP);
+		addMenuBar();
+		addStatusLine();
+		
+	}
+
+	/**
+	 * Create contents of the application window.
+	 * @param parent
+	 */
+	@Override
+	protected Control createContents(Composite parent) {
+		Composite container = new Composite(parent, SWT.NONE);
+		Myform form = new Myform("1","TestForm");
+		container.setLayoutData(form);
+		container.setLayout(new GridLayout(2, false));
+		{
+			TableViewer tableViewer = new TableViewer(container, SWT.BORDER | SWT.FULL_SELECTION);
+			table = tableViewer.getTable();
+			GridData gd_table = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+			gd_table.heightHint = 104;
+			table.setLayoutData(gd_table);
+		}
+		{
+			TabFolder tabFolder = new TabFolder(container, SWT.NONE);
+			tabFolder.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 2));
+			{
+				TabItem tbtmNewItem = new TabItem(tabFolder, SWT.NONE);
+				tbtmNewItem.setText("New Item");
+			}
+		}
+		{
+			TableViewer tableViewer = new TableViewer(container, SWT.BORDER | SWT.FULL_SELECTION);
+			table_1 = tableViewer.getTable();
+			table_1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		}
+		new Label(container, SWT.NONE);
+
+		return container;
+	}
+
+	/**
+	 * Create the actions.
+	 */
+	private void createActions() {
+		// Create the actions
+	}
+
+	/**
+	 * Create the menu manager.
+	 * @return the menu manager
+	 */
+	@Override
+	protected MenuManager createMenuManager() {
+		MenuManager menuManager = new MenuManager("menu");
+		return menuManager;
+	}
+
+	/**
+	 * Create the toolbar manager.
+	 * @return the toolbar manager
+	 */
+	@Override
+	protected ToolBarManager createToolBarManager(int style) {
+		ToolBarManager toolBarManager = new ToolBarManager(style);
+		return toolBarManager;
+	}
+
+	/**
+	 * Create the status line manager.
+	 * @return the status line manager
+	 */
+	@Override
+	protected StatusLineManager createStatusLineManager() {
+		StatusLineManager statusLineManager = new StatusLineManager();
+		return statusLineManager;
+	}
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String args[]) {
+		try {
+			Mypopup window = new Mypopup();		
+			window.setBlockOnOpen(true);
+			window.open();
+			Display.getCurrent().dispose();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Configure the shell.
+	 * @param newShell
+	 */
+	@Override
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		newShell.setText("New Application");
+	}
+
+	/**
+	 * Return the initial size of the window.
+	 */
+	@Override
+	protected Point getInitialSize() {
+		return new Point(450, 303);
+	}
+
+}

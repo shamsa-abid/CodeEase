@@ -1,0 +1,49 @@
+package sampleview.views;
+
+import org.eclipse.jdt.ui.text.java.hover.IJavaEditorTextHover;
+import org.eclipse.jface.text.BadLocationException;
+import org.eclipse.jface.text.IRegion;
+import org.eclipse.jface.text.ITextViewer;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IEditorPart;
+
+import lums.cbrs.completion.CodeCompletion;
+
+
+
+public class Hover implements IJavaEditorTextHover {
+
+	@Override
+	public void setEditor(IEditorPart arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String getHoverInfo(ITextViewer textViewer, IRegion hoverRegion) {
+		// TODO Auto-generated method stub
+		// return "Your own hover Text goes here";
+		
+		 if (hoverRegion != null) {
+				try {
+					if (hoverRegion.getLength() > -1)
+					{
+						CodeCompletion cc = new CodeCompletion();						
+						SampleView sv = new SampleView();										
+						sv.getViewer().setInput(cc.getMethodNames().toArray());
+						
+						return textViewer.getDocument().get(hoverRegion.getOffset(), hoverRegion.getLength());
+					}
+				} catch (BadLocationException x) {
+				}
+			}
+			return ""; 
+	}
+
+	@Override
+	public IRegion getHoverRegion(ITextViewer arg0, int arg1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

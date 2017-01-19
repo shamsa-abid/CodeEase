@@ -1,0 +1,102 @@
+package lums.cbrs.completion;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class CodeCompletion {
+
+	private ArrayList<String> readFileMethodNames = new ArrayList<String>();
+	private ArrayList<String> methodBodies = new ArrayList<String>();
+	private ArrayList<String> friendMethodBodies = new ArrayList<String>();
+	private ArrayList<String> writeFileMethodNames = new ArrayList<String>();
+
+	public CodeCompletion()
+	{
+		readFileMethodNames.add("readFile()");
+		readFileMethodNames.add("readFile()");
+		readFileMethodNames.add("readSmallTextFile(String aFileName)");		
+		readFileMethodNames.add("readLargerTextFile(String aFileName)");
+		readFileMethodNames.add("readLargerTextFileAlternate(String aFileName)");		
+	
+		writeFileMethodNames.add("writeFile()");
+		writeFileMethodNames.add("writeSmallTextFile(List<String> aLines, String aFileName)");
+		writeFileMethodNames.add("writeLargerTextFile(String aFileName, List<String> aLines)");
+		writeFileMethodNames.add("writeToTextFile(String fileName, String content)");
+		writeFileMethodNames.add("writeFile()");
+			
+		friendMethodBodies.add("String[] simpleArray1 = list.toArray(new String[list.size()]);");
+		friendMethodBodies.add("String[] simpleArray2 = list.toArray(new String[list.size()]);");
+		friendMethodBodies.add("String[] simpleArray3 = list.toArray(new String[list.size()]);");
+				
+	}
+	
+	public void setMethodNames(ArrayList<String> methodNames) {
+		this.readFileMethodNames = methodNames;
+	}
+
+	public ArrayList<String> getReadFileMethodNames()
+	{
+		return readFileMethodNames;
+	}
+	public ArrayList<String> getWriteFileMethodNames()
+	{
+		return writeFileMethodNames;
+	}
+	
+	public ArrayList<String> getMethodBody(int elementNumber)
+	{
+		switch(elementNumber)
+		{
+		case 1:
+			return fileRead("F:\\PhD\\HCI\\PluginDev\\RecommenderSystem\\ReadFile\\readFile1.txt");
+		case 2:
+			return fileRead("F:\\PhD\\HCI\\PluginDev\\RecommenderSystem\\ReadFile\\readFile2.txt");
+		case 3:
+			return fileRead("F:\\PhD\\HCI\\PluginDev\\RecommenderSystem\\ReadFile\\readFile3.txt");
+		case 4:
+			return fileRead("F:\\PhD\\HCI\\PluginDev\\RecommenderSystem\\ReadFile\\readFile4.txt");
+		case 5:
+			return fileRead("F:\\PhD\\HCI\\PluginDev\\RecommenderSystem\\ReadFile\\readFile5.txt");
+				
+		return;
+		}
+	}
+	public static void main(String args[])
+	{}
+	
+	public static ArrayList<String> fileRead(String fileName){
+		File           f;
+		String         s;
+		FileReader     fr = null;
+		BufferedReader br = null;
+		ArrayList<String>   sl = new ArrayList<String>();
+		try {
+			f  = new File(fileName); 
+			fr = new FileReader(f);
+			br = new BufferedReader(fr);
+			while((s=br.readLine())!=null){
+				sl.add(s);
+				System.out.println(s);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+				try {
+					if(br!=null)
+						br.close();
+					if(fr!=null)
+						fr.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+		}
+		return sl;
+	}
+
+}

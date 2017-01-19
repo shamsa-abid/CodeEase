@@ -1,0 +1,10 @@
+void readLargerTextFileAlternate(String aFileName) throws IOException {
+    Path path = Paths.get(aFileName);
+    try (BufferedReader reader = Files.newBufferedReader(path, ENCODING)){
+      String line = null;
+      while ((line = reader.readLine()) != null) {
+        //process each line in some way
+        log(line);
+      }      
+    }
+  }

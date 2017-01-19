@@ -1,0 +1,59 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.eclipse.papyrus.infra.doc;singleton:=true
+Bundle-Version: 1.1.4.201602101200
+Bundle-Name: %Bundle-Name
+Archiver-Version: Plexus Archiver
+Require-Bundle: org.eclipse.help;bundle-version="3.6.0",org.eclipse.ui
+ .intro;bundle-version="3.4.0",org.eclipse.pde.ui;bundle-version="3.8.
+ 0"
+Built-By: genie.papyrus
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Vendor: %Bundle-Vendor
+Build-Jdk: 1.7.0_80
+Created-By: Apache Maven 3.3.9
+
+Name: about.html
+SHA-256-Digest: qpi5HCWkNV++hpNfbpGosgGCmaepib0rLjlOXmqh23E=
+
+Name: plugin.xml
+SHA-256-Digest: niW1QZ53px1UseKpnJev6xShVwprSj98hbqPfz7CSAU=
+
+Name: intro/css/graphics/newproject_hov.png
+SHA-256-Digest: WtFs47pCSR/p/OZZY0I5DMLW1SBbFSy4ST/HQ8lfqSM=
+
+Name: intro/css/overview.css
+SHA-256-Digest: HwdCTqNcngK6OXULkdSR1PO12oDNHUjKBY+SIxg/d3Y=
+
+Name: resource/stylesheet.css
+SHA-256-Digest: JiANPnDmL8iKZjDKakszngpDrpMvfGXHxIBF12+FptI=
+
+Name: resource/PapyrusLeftBanner.gif
+SHA-256-Digest: EPMID+E/YfAKAXTSinr5VSRLahif5NKLeletf/Jxwbg=
+
+Name: META-INF/maven/org.eclipse.papyrus/org.eclipse.papyrus.infra.doc
+ /pom.xml
+SHA-256-Digest: QIeG6N7t8GZ7G2Pssa2v1NpatghDccpzwfqIraGnrMw=
+
+Name: META-INF/maven/org.eclipse.papyrus/org.eclipse.papyrus.infra.doc
+ /pom.properties
+SHA-256-Digest: l7kpVCuL1MqyTGLQhynoij8PQlBGPrSzQgtbEZ9Thmk=
+
+Name: intro/overview.xml
+SHA-256-Digest: qYgHD/KWwUg4cecexz+WVNDu0l+o4xxF65BqYOVYfX4=
+
+Name: intro/css/graphics/newproject.png
+SHA-256-Digest: WtFs47pCSR/p/OZZY0I5DMLW1SBbFSy4ST/HQ8lfqSM=
+
+Name: toc.xml
+SHA-256-Digest: dMqg/pQHnf+XLBv9NygSZMkfBWZK30jm5mnyKpCk6dM=
+
+Name: OSGI-INF/l10n/bundle.properties
+SHA-256-Digest: 4gi8M+BL8RGWYcxPZrKW1WOeCTqDKtUGRQOunt2AyNQ=
+
+Name: intro/css/firststeps.css
+SHA-256-Digest: HwdCTqNcngK6OXULkdSR1PO12oDNHUjKBY+SIxg/d3Y=
+
+Name: intro/firststeps.xml
+SHA-256-Digest: clN7kCrhz1peRyFLyP1sorYqrSq39+CLwsgRIMgdFaI=
+

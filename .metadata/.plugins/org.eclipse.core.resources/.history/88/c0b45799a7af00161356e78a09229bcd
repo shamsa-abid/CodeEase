@@ -1,0 +1,167 @@
+package testpopupmenu.popup.actions;
+
+import java.util.ArrayList;
+
+import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IObjectActionDelegate;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.editors.text.TextEditor;
+import org.eclipse.ui.texteditor.AbstractTextEditor;
+
+import lums.cbrs.completion.CodeCompletion;
+import sampleview.popup.Mypopup;
+import sampleview.views.SampleView;
+import sampleview.views.SampleView.ViewContentProvider;
+import testpopupmenu.Activator;
+
+import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.text.ITextSelection;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
+import org.eclipse.jface.viewers.ITableLabelProvider;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.IObjectActionDelegate;
+import org.eclipse.ui.IWorkbenchPart;
+
+
+
+public class SimpleMessageAction implements IObjectActionDelegate {
+
+	private Shell shell;
+	
+	/**
+	 * Constructor for Action1.
+	 */
+	public SimpleMessageAction() {
+		super();
+	}
+
+	/**
+	 * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
+	 */
+	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
+		shell = targetPart.getSite().getShell();
+	}
+
+	/**
+	 * @see IActionDelegate#run(IAction)
+	 */
+	public void run(IAction action) {
+		/*MessageDialog.openInformation(
+			shell,
+			"TestPopupMenu",
+			"SimpleMessageAction was executed.");*/
+		try {
+			//get editor
+			IEditorPart editorPart = Activator.getDefault().getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage()
+					.getActiveEditor();
+ 
+			if (editorPart instanceof AbstractTextEditor) {
+				
+				int offset = 0;
+				int length = 0;
+				String selectedText = null;
+				IEditorSite iEditorSite = editorPart.getEditorSite();
+				
+				if (iEditorSite != null) {
+					//get selection provider
+					ISelectionProvider selectionProvider = iEditorSite
+							.getSelectionProvider();
+					
+					if (selectionProvider != null) {
+						ISelection iSelection = selectionProvider
+								.getSelection();
+						//offset
+						offset = ((ITextSelection) iSelection).getOffset();
+						
+						if (!iSelection.isEmpty()) {
+							selectedText = ((ITextSelection) iSelection)
+									.getText();
+							//length
+							length = ((ITextSelection) iSelection).getLength();
+							System.out.println("length: " + length);							
+						
+							SampleView.section.setText("Method Completion Recommendations");
+							SampleView.section.setDescription("3 results found");
+							SampleView.viewer.setContentProvider(new ViewContentProvider(""));
+							SampleView.viewer.setLabelProvider(new ViewLabelProvider());        
+							SampleView.viewer.setInput();
+							//Mypopup window = new Mypopup();		
+							//window.setBlockOnOpen(true);
+							//window.open();
+							
+							
+							
+							//Display.getCurrent().dispose();
+							 //MessageDialog.openInformation(
+							   //      shell,
+							     //    "Do Something Menu",
+							       //  "Length: " + length + "    Offset: " + offset);
+						}
+					}
+				}
+ 
+			}
+		} catch (Exception e) {
+			System.out.println("Exception in SimpleMessageAction run()");
+		}
+	}
+	class ViewLabelProvider extends LabelProvider implements ITableLabelProvider {
+		public String getColumnText(Object obj, int index) {
+			return getText(obj);
+		}
+		public Image getColumnImage(Object obj, int index) {
+			return getImage(obj);
+		}
+		public Image getImage(Object obj) {
+			//platform:/plugin/org.eclipse.xtext.ui/icons/defaultoutlinenode.gif
+			//return PlatformUI.getWorkbench().
+			//		getSharedImages().getImage(ISharedImages.IMG_OBJ_FOLDER);		
+			
+			ImageDescriptor descriptor = Activator.getImageDescriptor("platform:/plugin/org.eclipse.xtext.ui/icons/defaultoutlinenode.gif");
+	    return descriptor.createImage();
+		}
+	}
+	class ViewContentProvider implements IStructuredContentProvider {
+		private String methodName;
+		public ViewContentProvider(String data)
+		{
+			methodName = data;
+		}
+		
+		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
+		}
+		public void dispose() {
+		}
+		public Object[] getElements(Object parent) {
+			ArrayList<String> tempMethodNames = new ArrayList<String>();
+			tempMethodNames.add("a1()");
+			tempMethodNames.add("a2()");
+			tempMethodNames.add("a3()");
+			return tempMethodNames.toArray();
+			//return methodNames.toArray();
+		}
+	}
+
+	/**
+	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
+	 */
+	public void selectionChanged(IAction action, ISelection selection) {
+	}
+
+}

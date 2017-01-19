@@ -1,0 +1,9 @@
+void writeLargerTextFile(String aFileName, List<String> aLines) throws IOException {
+    Path path = Paths.get(aFileName);
+    try (BufferedWriter writer = Files.newBufferedWriter(path, ENCODING)){
+      for(String line : aLines){
+        writer.write(line);
+        writer.newLine();
+      }
+    }
+  }

@@ -1,0 +1,52 @@
+package lums.cbrs.completion;
+
+import java.util.ArrayList;
+
+public class CodeCompletion {
+
+	private ArrayList<String> readFileMethodNames = new ArrayList<String>();
+	private ArrayList<String> methodBodies = new ArrayList<String>();
+	private ArrayList<String> friendMethodBodies = new ArrayList<String>();
+	private ArrayList<String> writeFileMethodNames = new ArrayList<String>();
+
+	public CodeCompletion()
+	{
+		readFileMethodNames.add("readFile()");
+		readFileMethodNames.add("readFile()");
+		readFileMethodNames.add("readSmallTextFile(String aFileName)");		
+		readFileMethodNames.add("readLargerTextFile(String aFileName)");
+		readFileMethodNames.add("readLargerTextFileAlternate(String aFileName)");		
+	
+		writeFileMethodNames.add("writeFile()");
+		writeFileMethodNames.add("writeSmallTextFile(List<String> aLines, String aFileName)");
+		writeFileMethodNames.add("writeLargerTextFile(String aFileName, List<String> aLines)");
+		writeFileMethodNames.add("writeToTextFile(String fileName, String content)");
+		writeFileMethodNames.add("writeFile()");
+			
+		friendMethodBodies.add("String[] simpleArray1 = list.toArray(new String[list.size()]);");
+		friendMethodBodies.add("String[] simpleArray2 = list.toArray(new String[list.size()]);");
+		friendMethodBodies.add("String[] simpleArray3 = list.toArray(new String[list.size()]);");
+				
+	}
+	
+	public void setMethodNames(ArrayList<String> methodNames) {
+		this.readFileMethodNames = methodNames;
+	}
+
+	public ArrayList<String> getReadFileMethodNames()
+	{
+		return readFileMethodNames;
+	}
+	public ArrayList<String> getWriteFileMethodNames()
+	{
+		return writeFileMethodNames;
+	}
+	
+	private String getMethodBody(int elementNumber)
+	{
+		return methodBodies.get(elementNumber);
+	}
+	public static void main(String args[])
+	{}
+
+}

@@ -1,4 +1,0 @@
-void writeSmallTextFile(List<String> aLines, String aFileName) throws IOException {
-    Path path = Paths.get(aFileName);
-    Files.write(path, aLines, ENCODING);
-  }

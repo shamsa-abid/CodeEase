@@ -1,3 +1,0 @@
-public static void writeFile() throws IOException{
-        BufferedWriter outputStream = new BufferedWriter(new FileWriter(
-        "numbers.txt"));

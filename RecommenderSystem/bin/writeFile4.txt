@@ -1,3 +1,0 @@
-public static void writeToTextFile(String fileName, String content) throws IOException {
-                Files.write(Paths.get(fileName), content.getBytes(), StandardOpenOption.CREATE);
-        }
